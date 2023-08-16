@@ -1,0 +1,34 @@
+.menuItem {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.menuItem::before,
+.menuItem::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #1e4660;
+  transition: width 0.3s ease;
+  bottom: 0;
+}
+
+.menuItem::before {
+  left: 50%;
+}
+
+.menuItem::after {
+  right: 50%;
+}
+
+.menuItem:hover::before {
+  left: 50%;
+  width: 50%;
+}
+
+.menuItem:hover::after {
+  right: 50%;
+  width: 50%;
+}

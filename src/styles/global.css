@@ -1,0 +1,23 @@
+html {
+  scroll-behavior: smooth;
+  visibility: hidden;
+}
+
+html.wf-active {
+  visibility: visible;
+}
+
+body {
+  background: linear-gradient(45deg, #edd6f0, #e6eb89);
+  margin: 0;
+  padding-bottom: 100px;
+  font-family: 'hiragino-kaku-gothic-pron', sans-serif;
+}
+
+iframe {
+  border: none;
+}
+
+.section__element--title {
+  background: 'linear-gradient(transparent 70%, #e7a9db 70%)';
+}
