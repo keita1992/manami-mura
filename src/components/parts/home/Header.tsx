@@ -4,7 +4,6 @@ import * as React from 'react';
 
 import { NavText } from '@/components/typography/Home/Header/NavText';
 import { PageTitleForPc } from '@/components/typography/Home/Header/PageTitleForPc';
-import { PageTitleForSp } from '@/components/typography/Home/Header/PageTitleForSp';
 import styles from '@/styles//home/Header.module.css';
 import { Constants } from '@/utils/constants';
 
@@ -14,12 +13,11 @@ export const Header = () => {
   const handleClick = (
     e: React.MouseEvent<HTMLElement>,
     sectionId: string,
-    type: 'pc' | 'sp'
   ) => {
     e.preventDefault();
     // ナビゲーションバーの高さ
     const element = document.getElementById(sectionId);
-    const offset = type === 'pc' ? 80 : 60;
+    const offset = 80;
     if (element) {
       const top = element.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
@@ -33,21 +31,16 @@ export const Header = () => {
   return (
     <AppBar
       position="fixed"
-      sx={{ p: 1, backgroundImage: 'linear-gradient(45deg, #ccede2, #dacdc7)' }}
+      sx={{ backgroundImage: 'linear-gradient(45deg, #ccede2, #dacdc7)', display: { xs: 'none', md: 'inherit' } }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: 'center' }}>
-          {/* スマホタイトル */}
-          <Box sx={{ textAlign: 'center' }}>
-            <PageTitleForSp text={Constants.PAGE_TITLE} />
-          </Box>
-
           {/* PC用メニュー */}
           <PageTitleForPc
             text={Constants.PAGE_TITLE}
             onClick={handleTitleClick}
           />
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { md: 'flex' } }}>
             {Constants.SECTIONS.map((section) => (
               <Link
                 key={section.name}
@@ -57,11 +50,10 @@ export const Header = () => {
               >
                 <Box
                   className={styles.menuItem}
-                  onClick={(e) => handleClick(e, section.id, 'pc')}
+                  onClick={(e) => handleClick(e, section.id)}
                   component="div"
                   sx={{
                     m: 2,
-                    color: 'black',
                     display: 'block',
                     ':hover': {
                       cursor: 'pointer',

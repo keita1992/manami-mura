@@ -1,0 +1,22 @@
+.item_title {
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+}
+
+.item_title:before, .item_title:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  width: 45px;
+  height: 1px;
+  background-color: black;
+}
+
+.item_title:before {
+  left:0;
+}
+.item_title:after {
+  right: 0;
+}

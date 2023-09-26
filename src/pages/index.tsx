@@ -5,10 +5,11 @@ import PageLayout from '@/components/layout/PageLayout';
 import { About } from '@/components/parts/home/About';
 import { Access } from '@/components/parts/home/Access';
 import { Artist } from '@/components/parts/home/Artist';
-import { Concept } from '@/components/parts/home/Concept';
 import { Firstview } from '@/components/parts/home/Firstview';
 import { Header } from '@/components/parts/home/Header';
-import { useAppDispatch } from '@/stores';
+import { Message } from '@/components/parts/home/Message';
+import { useAppDispatch, useAppSelector } from '@/stores';
+import { getIsMobile } from '@/stores/ui';
 import { setIsMobileAction } from '@/stores/ui/actions';
 
 export async function getStaticProps() {
@@ -17,6 +18,7 @@ export async function getStaticProps() {
 
 const Home = () => {
   const dispatch = useAppDispatch();
+  const isMobile = useAppSelector(getIsMobile);
 
   useEffect(() => {
     const userAgent = window.navigator.userAgent.toLowerCase();
@@ -27,17 +29,16 @@ const Home = () => {
 
   return (
     <PageLayout>
-      <Header />
+      {!isMobile && <Header />}
       <Grid
         sx={{
           mt: {
-            xs: '72px',
-            md: '90px',
+            md: '80px',
           },
         }}
       />
       <Firstview />
-      <Concept />
+      <Message />
       <Artist />
       <About />
       <Access />

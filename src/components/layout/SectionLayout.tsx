@@ -30,7 +30,7 @@ const SectionLayout = (props: Props) => {
   }, [controls, onScreen]);
 
   return (
-    <Box id={props.id} sx={{ py: 2, my: 2, textAlign: 'center' }}>
+    <Box id={props.id} sx={{ py: 2, textAlign: 'center' }}>
       <SectionTitle text={props.title} />
       <motion.div
         ref={ref}

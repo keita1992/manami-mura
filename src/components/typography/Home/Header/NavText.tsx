@@ -1,11 +1,12 @@
 import { Typography, styled } from '@mui/material';
 
 const CustomContainer = styled(Typography)(({ theme }) => ({
-  fontFamily: 'ta-oonishi, sans-serif',
-  fontWeight: 400,
+  fontFamily: 'caffe-cappuccino, sans-serif',
+  fontWeight: 600,
   fontStyle: 'normal',
-  fontSize: '1.3rem',
+  fontSize: '2.0rem',
   color: theme.palette.primary.main,
+  letterSpacing: '0.1em',
 }));
 
 export const NavText = (props: { text: string }) => {

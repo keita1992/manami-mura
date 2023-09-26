@@ -6,7 +6,7 @@ type Props = {
 
 const PageLayout = (props: Props) => {
   return (
-    <Grid sx={{ px: 0 }}>
+    <Grid sx={{ px: 0, overflow: 'hidden' }}>
       <main>{props.children}</main>
     </Grid>
   );
